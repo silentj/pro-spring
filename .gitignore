@@ -1,0 +1,9 @@
+# IntelliJ IDEA files
+/.idea
+*.iml
+
+# Maven temp files
+/target
+
+# macOS files
+.DS_Store
