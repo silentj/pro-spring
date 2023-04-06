@@ -17,7 +17,7 @@ class SpringContextTest {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("systemOutConfiguration.xml");
 
         String output = tapSystemOut(() -> {
-            MessageRenderer mr = ctx.getBean("renderer", MessageRenderer.class);
+            MessageRenderer mr = ctx.getBean(MessageRenderer.class);
             mr.render();
         });
 
@@ -25,8 +25,8 @@ class SpringContextTest {
         assertEquals("Hello, world!\n", output);
 
         // Test that the beans aren't proxies
-        assertEquals(SystemOutMessageRenderer.class, ctx.getBean("renderer").getClass());
-        assertEquals(HelloWorldMessageProvider.class, ctx.getBean("provider").getClass());
+        assertEquals(SystemOutMessageRenderer.class, ctx.getBean(MessageRenderer.class).getClass());
+        assertEquals(HelloWorldMessageProvider.class, ctx.getBean(MessageProvider.class).getClass());
     }
 
     @Test
@@ -34,7 +34,7 @@ class SpringContextTest {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(HelloWorldConfiguration.class);
 
         String output = tapSystemOut(() -> {
-            MessageRenderer mr = ctx.getBean("renderer", MessageRenderer.class);
+            MessageRenderer mr = ctx.getBean(MessageRenderer.class);
             mr.render();
         });
 
@@ -42,8 +42,8 @@ class SpringContextTest {
         assertEquals("Hello, world!\n", output);
 
         // Test that the beans aren't proxies
-        assertEquals(SystemOutMessageRenderer.class, ctx.getBean("renderer").getClass());
-        assertEquals(HelloWorldMessageProvider.class, ctx.getBean("provider").getClass());
+        assertEquals(SystemOutMessageRenderer.class, ctx.getBean(MessageRenderer.class).getClass());
+        assertEquals(HelloWorldMessageProvider.class, ctx.getBean(MessageProvider.class).getClass());
     }
 
     private static String tapSystemOut(Runnable runnable) {
