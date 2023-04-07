@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SpringContextTest {
     @Test
     public void shouldCreateRendererAndRenderToSystemOutWithXmlConfig() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("systemOutConfiguration.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("ch2/systemOutConfiguration.xml");
 
         String output = tapSystemOut(() -> {
             MessageRenderer mr = ctx.getBean(MessageRenderer.class);
