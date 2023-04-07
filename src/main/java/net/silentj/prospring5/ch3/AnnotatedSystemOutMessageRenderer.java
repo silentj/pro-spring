@@ -2,9 +2,9 @@ package net.silentj.prospring5.ch3;
 
 import net.silentj.prospring5.ch2.MessageProvider;
 import net.silentj.prospring5.ch2.MessageRenderer;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class AnnotatedSystemOutMessageRenderer implements MessageRenderer {
 
     private final MessageProvider messageProvider;
