@@ -35,7 +35,8 @@ class AnnotationDrivenSpringContextTest {
         assertThat(ctx.getBeanDefinitionNames(), hasItemInArray("annotatedSystemOutMessageRenderer"));
 
         // These assertions are false...
-        // assertThat(ctx.getBeanDefinitionNames(), arrayWithSize(2)); // There are 4 other beans related to configuration
+        // There are 4 other beans related to configuration
+        // assertThat(ctx.getBeanDefinitionNames(), arrayWithSize(2));
     }
 
     @Test
